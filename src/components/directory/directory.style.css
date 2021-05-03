@@ -1,0 +1,9 @@
+.directory-menu{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px , 1fr));
+  gap: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 75vw;
+  padding: 7.5px;
+}
