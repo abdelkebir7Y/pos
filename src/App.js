@@ -1,17 +1,10 @@
 import './App.css';
-import Directory from './components/directory/directory.component';
-import Keybaord from './components/keybaord/keybaord.component';
+import PosPage from './pages/posPage/posPage';
 
 
 function App() {
   return (
-    <div className='app'>
-      <div className='divTest'>
-        <Keybaord /> 
-      </div>
-      <Directory />
-    </div>
-    
+    <PosPage />
   );
 }
 

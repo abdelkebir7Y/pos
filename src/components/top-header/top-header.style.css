@@ -1,0 +1,32 @@
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 50px;
+  background-color :rgb(1, 106, 1);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.app-logo {
+  font-family: "jokerman";
+  margin-left: 7.5px;
+  width: 500px;
+}
+
+.top-header-right {
+  flex: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lock-button {
+  padding-right : 55px;
+}
+
+.user {
+  margin-right: 7.5px;
+}

@@ -1,0 +1,7 @@
+.left-pane {
+  width: 500px;
+  padding-right: 6px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}

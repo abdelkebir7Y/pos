@@ -2,14 +2,5 @@ body{
   width: 100%;
   margin: 0px;
   background-color: #F0EEEE;
-}
-
-.app {
-  display :flex;
-}
-
-.divTest {
-  position: relative;
-  min-width: 500px;
-  padding: 6px;
+  font-family : "Lato","Lucida Grande", Helvetica, Verdana, Arial;
 }
