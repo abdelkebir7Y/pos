@@ -4,6 +4,14 @@
   gap: 10px;
   box-sizing: border-box;
   border: 1px solid black;
-  width: 75vw;
   padding: 7.5px;
+  flex : 3;
+  height: 100vh;
+  align-content: start;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.directory-menu::-webkit-scrollbar {
+  display: none;
 }
