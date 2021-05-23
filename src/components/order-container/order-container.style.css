@@ -5,7 +5,7 @@
   padding: 6px;
 }
 
-.tabs {
+/* .tabs {
   align-items: center;
   display: flex;
   margin-bottom: 7.5px;
@@ -25,7 +25,7 @@
 
 .tabs__tab--inactive {
   border-bottom: 1px solid rgba(0, 0, 0);
-}
+} */
 
 .order-container li {
   list-style: none;
@@ -49,9 +49,4 @@
   margin-top: 16px;
   padding-top: 7.5px;
   text-align: center;
-}
-
-.text-bold {
-  font-size: 25px;
-  font-weight: 300;
 }

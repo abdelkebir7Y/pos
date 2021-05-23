@@ -3,7 +3,7 @@ import './order-container.style.css'
 const OrderContainer = () => {
   return (
     <div className='order-container'>
-      <div class="tabs">
+      {/* <div class="tabs">
           <div class="tab tabs__tab--active">
             Commande I
           </div>
@@ -16,7 +16,7 @@ const OrderContainer = () => {
           <div class="tab tabs__tab--inactive">
             Commande II
           </div>
-      </div>
+      </div> */}
       <ul className='order-item'>
         <li className='product-info text-bold'>
           <span className='product-name'>Pizza</span>

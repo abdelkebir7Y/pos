@@ -1,6 +1,46 @@
 body{
   width: 100%;
   margin: 0px;
-  background-color: #F0EEEE;
+  background-color: rgb(252, 252, 252);
   font-family : "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+}
+
+.text-bold {
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.red {
+  border: 2px solid #98262E;
+  background-color: #ED3B48;
+  color:white;
+}
+
+.red:hover {
+  background-color: #BE2F3A ;
+}
+
+.green {
+  border: 2px solid #227A3B;
+  background-color: #35BE5C;
+  color:white;
+}
+
+.green:hover {
+  background-color: #2A984A;
+}
+
+.gray {
+  border: 2px solid #bfbfbf;
+  background-color: #eee;
+  color: #555555;
+}
+
+.gray:hover {
+  background-color: #ddd;
+}
+
+.icon {
+  cursor: pointer;
+  vertical-align:middle;
 }

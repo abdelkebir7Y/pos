@@ -1,18 +1,20 @@
 .top-header {
+  border: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
   height: 50px;
-  background-color :rgb(1, 106, 1);
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
 }
 
+.top-header:hover {
+  background-color: #ED3B48 ;
+}
+
 .app-logo {
-  font-family: "jokerman";
   margin-left: 7.5px;
   width: 500px;
 }
@@ -21,12 +23,53 @@
   flex: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
-.lock-button {
-  padding-right : 55px;
+
+.search-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+  margin-left: 7.5px;
+  border:1px solid #BE2F3A;
+  border-radius: 10px ;
+  padding: 7.5px;
+  background-color: white;
+  color: black;
 }
 
-.user {
-  margin-right: 7.5px;
+.search-input{
+  padding-left: 7.5px;
+  padding: 0px;
+  margin: 0px;
+  border:none;
+  width: 290px;
+}
+
+.top-header-right-buttons {
+  height: 100%;
+}
+
+.top-header-right-buttons .top-header-button {
+  height: 100%;
+  padding: 25px;
+  padding-top: 7.5px;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 2px solid #BE2F3A;
+  background: linear-gradient(89deg, #ED3B48 0%, #BE2F3A 100%);
+}
+
+.top-header-button .icon {
+  padding-right: 7.5px;
+  padding-bottom: 2px;
+}
+
+.caret-down {
+  margin-left: 7.5px;
+  vertical-align: -27.5%;
 }
