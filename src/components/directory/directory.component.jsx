@@ -1,178 +1,29 @@
 import React from 'react';
 import MenuItem from '../menu-item-component/menu-item.component';
-
+import {GiShoppingCart} from 'react-icons/gi';
 import './directory.style.css';
 
-class Directory extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      items : [
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 1,
-          imageUrl : 'https://www.thesdelapagode.com/guide-du-the/wp-content/uploads/2019/12/choix-th%C3%A9-vrac-infusette.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 2,
-          imageUrl : 'https://www.dunesdeserts.com/wp-content/uploads/2019/03/THE-A-LA-MENTHE-MAROC-12.5.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 3,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 4,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 5,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 1,
-          imageUrl : 'https://www.thesdelapagode.com/guide-du-the/wp-content/uploads/2019/12/choix-th%C3%A9-vrac-infusette.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 2,
-          imageUrl : 'https://www.dunesdeserts.com/wp-content/uploads/2019/03/THE-A-LA-MENTHE-MAROC-12.5.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 3,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 4,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 5,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 1,
-          imageUrl : 'https://www.thesdelapagode.com/guide-du-the/wp-content/uploads/2019/12/choix-th%C3%A9-vrac-infusette.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 2,
-          imageUrl : 'https://www.dunesdeserts.com/wp-content/uploads/2019/03/THE-A-LA-MENTHE-MAROC-12.5.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 3,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 4,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 5,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 1,
-          imageUrl : 'https://www.thesdelapagode.com/guide-du-the/wp-content/uploads/2019/12/choix-th%C3%A9-vrac-infusette.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 2,
-          imageUrl : 'https://www.dunesdeserts.com/wp-content/uploads/2019/03/THE-A-LA-MENTHE-MAROC-12.5.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 3,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 4,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 5,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 1,
-          imageUrl : 'https://www.thesdelapagode.com/guide-du-the/wp-content/uploads/2019/12/choix-th%C3%A9-vrac-infusette.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 2,
-          imageUrl : 'https://www.dunesdeserts.com/wp-content/uploads/2019/03/THE-A-LA-MENTHE-MAROC-12.5.jpg'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 3,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 4,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        },
-        {
-          title : 'Pizza',
-          price : '25',
-          id : 5,
-          imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYQhzCm91T20Z-_2TWSvR9OGn-zA7QIWW-w&usqp=CAU'
-        }
-      ]
-    }
-  }
+const Directory = ({items , searchField}) => {
 
-  render(){
-    return (
+  const filteredItems =  items.filter(item => {
+    return item.name.toLowerCase().includes(searchField.toLowerCase());
+  });
+
+  return (
+    (filteredItems.length) ?
       <div className='directory-menu'>
         {
-          this.state.items.map(({id , ...otherProps}) => (
+          filteredItems.map(({id , ...otherProps}) => (
             <MenuItem key={id} {...otherProps} />
           ))
         }
       </div>
-    );
-  }
-
+    :
+      <div className='no-item text-bold' >
+        <p>Aucun élément trouvé</p>
+        <GiShoppingCart style={{fontSize : '75px'}} />
+      </div>
+  );
 }
+
 export default Directory;

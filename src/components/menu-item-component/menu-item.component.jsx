@@ -1,6 +1,6 @@
 import './menu-item.style.css';
 
-function MenuItem({title , price , imageUrl}) {
+function MenuItem({name , price , imageUrl}) {
   return (
     <div className='item' >
       <div 
@@ -8,7 +8,7 @@ function MenuItem({title , price , imageUrl}) {
         style={{backgroundImage : `url(${imageUrl})`}}
       />
       <div className='content'>
-        <h5 className='title' >{title}</h5>
+        <h5 className='name' >{name}</h5>
         <span className='price'>{price} DHs</span>
       </div>
     </div>

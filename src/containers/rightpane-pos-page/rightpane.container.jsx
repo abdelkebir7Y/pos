@@ -1,9 +1,9 @@
 import Directory from "../../components/directory/directory.component"
 import './rightpane.style.css'
-const Rightpane = () => {
+const Rightpane = ({searchField , items}) => {
   return (
     <div className='right-pane'>
-      <Directory />
+      <Directory searchField = {searchField} items = {items} />
     </div>
   )
 }
