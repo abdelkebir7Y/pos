@@ -4,29 +4,6 @@
   overflow: auto;
   padding: 6px;
 }
-
-/* .tabs {
-  align-items: center;
-  display: flex;
-  margin-bottom: 7.5px;
-}
-
-.tab {
-  font-size: large;
-  padding: 7.5px;
-}
-
-.tabs__tab--active {
-  border: 1px solid rgba(0, 0, 0);
-  border-bottom-color: transparent;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-}
-
-.tabs__tab--inactive {
-  border-bottom: 1px solid rgba(0, 0, 0);
-} */
-
 .order-container li {
   list-style: none;
 }
@@ -49,4 +26,13 @@
   margin-top: 16px;
   padding-top: 7.5px;
   text-align: center;
+}
+
+.order-container .no-item {
+  box-sizing: border-box;
+}
+
+.order-container .no-item p {
+  padding-top: 30%;
+  margin: 0px;
 }

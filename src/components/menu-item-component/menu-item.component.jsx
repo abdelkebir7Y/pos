@@ -1,8 +1,13 @@
 import './menu-item.style.css';
 
-function MenuItem({name , price , imageUrl}) {
+function MenuItem({id , name , price , imageUrl , addToOrderList }) {
   return (
-    <div className='item' >
+    <div 
+      className='item' 
+      onClick={()=>{
+        addToOrderList({name , price , id , counter : 1 })
+      }} 
+    >
       <div 
         className='background-image' 
         style={{backgroundImage : `url(${imageUrl})`}}

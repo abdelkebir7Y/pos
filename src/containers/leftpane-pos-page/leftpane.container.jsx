@@ -2,10 +2,10 @@ import './leftpane.style.css'
 import Keybaord from "../../components/keybaord/keybaord.component"
 import OrderContainer from '../../components/order-container/order-container';
 
-const Leftpane = () => {
+const Leftpane = ({orderItems}) => {
   return (
     <div className='left-pane'>
-      <OrderContainer/>
+      <OrderContainer orderItems={orderItems}/>
       <Keybaord />
     </div>
   );

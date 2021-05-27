@@ -154,7 +154,8 @@ class PosPage extends React.Component{
           id : 25,
           imageUrl : 'https://img.freepik.com/photos-gratuite/pizza-pizza-remplie-tomates-salami-olives_140725-1200.jpg?size=626&ext=jpg'
         }
-      ]
+      ],
+      orderItems : []
     }
   }
 
@@ -166,12 +167,35 @@ class PosPage extends React.Component{
     this.setState({searchField : ''});
   }
 
+  addToOrderList = (item)=> {
+    const indexOFItem = this.state.orderItems.findIndex(obj => obj.id === item.id);
+    if(indexOFItem >= 0) {
+      const orderItems = this.state.orderItems;
+      const selectItem = orderItems[indexOFItem];
+      selectItem.counter = selectItem.counter + 1;
+      orderItems[indexOFItem] = selectItem;
+      this.setState(orderItems)
+    }else{
+      this.setState({orderItems : this.state.orderItems.concat(item) });
+    }
+  }
+
   render () {
     return (
       <div className='window'>
-        <TopHeader searchField={this.state.searchField} onSearchFieldChange = {this.onSearchFieldChange} clearSearchField={this.clearSearchField}/>
-        <Leftpane />
-        <Rightpane searchField={this.state.searchField} items={this.state.items}/>
+        <TopHeader 
+          searchField={this.state.searchField} 
+          onSearchFieldChange = {this.onSearchFieldChange} 
+          clearSearchField={this.clearSearchField}
+        />
+        <Leftpane 
+          orderItems={this.state.orderItems} 
+        />
+        <Rightpane 
+          searchField={this.state.searchField} 
+          items={this.state.items}
+          addToOrderList= {this.addToOrderList}
+        />
       </div>
     );  
   }
