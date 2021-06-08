@@ -3,7 +3,6 @@ import {GiShoppingCart} from 'react-icons/gi';
 
 const OrderContainer = ({orderItems}) => {
   let total = 0;
-  console.log(orderItems.length)
   return (
     <div className='order-container'>
       {

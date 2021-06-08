@@ -27,7 +27,7 @@ const Keybaord = () => {
           <KeyButton className='text-bold small-key gray' >7</KeyButton>
           <KeyButton className='text-bold small-key gray' >8</KeyButton>
           <KeyButton className='text-bold small-key gray' >9</KeyButton>
-          <KeyButton className="text-bold medium-key gray" >Remis%</KeyButton>
+          <KeyButton className="text-bold medium-key gray" >Remise%</KeyButton>
         </div>
         <div className='group-keys' >
           <KeyButton className="text-bold small-key red" >+/-</KeyButton>
