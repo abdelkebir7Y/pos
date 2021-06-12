@@ -1,9 +1,17 @@
 
 import './key-button.style.css';
 
-const KeyButton = ({children , className}) => {
+const KeyButton = ({children , className , handleChangeButtonActive , buttonActiveValue}) => {
   return (
-    <button className={`key ${className}`} >{children}</button>
+    handleChangeButtonActive ?
+      <button  
+        className={`key ${className}`} 
+        onClick={(event)=> {handleChangeButtonActive(buttonActiveValue)}}
+      >
+        {children}
+      </button>
+    :
+      <button className={`key ${className}`} >{children}</button>
   );
 }
 

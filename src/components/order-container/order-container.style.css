@@ -30,9 +30,8 @@
 
 .order-container .no-item {
   box-sizing: border-box;
-}
-
-.order-container .no-item p {
-  padding-top: 30%;
-  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

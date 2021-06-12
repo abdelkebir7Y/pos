@@ -10,6 +10,16 @@ body{
   font-size: 25px;
 }
 
+.gray {
+  border: 2px solid #bfbfbf;
+  background-color: #eee;
+  color: #555555;
+}
+
+.gray:hover {
+  background-color: #ddd;
+}
+
 .red {
   border: 2px solid #98262E;
   background-color: #ED3B48;
@@ -28,16 +38,6 @@ body{
 
 .green:hover {
   background-color: #2A984A;
-}
-
-.gray {
-  border: 2px solid #bfbfbf;
-  background-color: #eee;
-  color: #555555;
-}
-
-.gray:hover {
-  background-color: #ddd;
 }
 
 .icon {
