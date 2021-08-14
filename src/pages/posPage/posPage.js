@@ -155,7 +155,10 @@ class PosPage extends React.Component{
           imageUrl : 'https://img.freepik.com/photos-gratuite/pizza-pizza-remplie-tomates-salami-olives_140725-1200.jpg?size=626&ext=jpg'
         }
       ],
-      orderItems : []
+      orderItems : [],
+      buttonActive : "Qté",
+      selectedItemId : 0,
+      inputValue : ''
     }
   }
 
@@ -167,17 +170,55 @@ class PosPage extends React.Component{
     this.setState({searchField : ''});
   }
 
+  findIndexOfItem =(id) => this.state.orderItems.findIndex(obj => obj.id === id)
+
   addToOrderList = (item)=> {
-    const indexOFItem = this.state.orderItems.findIndex(obj => obj.id === item.id);
+    const indexOFItem = this.findIndexOfItem(item.id);
     if(indexOFItem >= 0) {
       const orderItems = this.state.orderItems;
-      const selectItem = orderItems[indexOFItem];
-      selectItem.counter = selectItem.counter + 1;
-      orderItems[indexOFItem] = selectItem;
-      this.setState(orderItems)
+      const selectedItem = orderItems[indexOFItem];
+      selectedItem.counter = selectedItem.counter + 1;
+      orderItems[indexOFItem] = selectedItem;
+      this.setState({orderItems , selectedItemId : selectedItem.id , inputValue: ""})
     }else{
-      this.setState({orderItems : this.state.orderItems.concat(item) });
+      this.setState({orderItems : this.state.orderItems.concat(item) , selectedItemId : item.id , inputValue: ""})
     }
+  }
+
+  handleChangeButtonActive = (button) => {
+    this.setState({buttonActive : button , inputValue : ''});
+  }
+
+  onClickSelectItem = (id) => {
+    this.setState({selectedItemId : id , inputValue: ""});
+  }
+
+  changePriceQteRemise = (value , property) => {
+    if(this.state.selectedItemId && !(value === '.' && this.state.inputValue.includes('.'))) {
+      let {orderItems , inputValue , selectedItemId} = this.state;
+      const indexOFItem = this.findIndexOfItem(selectedItemId);
+      const selectedItem = orderItems[indexOFItem];
+      inputValue =  inputValue.concat(value);
+      selectedItem[property] = Number(inputValue);
+      this.setState({inputValue , orderItems });
+    }
+  }
+
+  handleChangeInput = (value) => {
+    switch(this.state.buttonActive){
+      case 'Qté' : 
+        this.changePriceQteRemise(value , 'counter');
+        break;
+      case 'Prix' :
+        this.changePriceQteRemise(value , 'price');
+        break;
+      case 'Remise' :
+          this.changePriceQteRemise(value , 'remise');
+          break;
+      default :
+        console.log(this.state.buttonActive);
+    }
+    
   }
 
   render () {
@@ -190,6 +231,11 @@ class PosPage extends React.Component{
         />
         <Leftpane 
           orderItems={this.state.orderItems} 
+          selectedItemId = {this.state.selectedItemId}
+          handleChangeButtonActive = {this.handleChangeButtonActive}
+          buttonActive= {this.state.buttonActive}
+          onClickSelectItem = {this.onClickSelectItem}
+          handleChangeInput= {this.handleChangeInput}
         />
         <Rightpane 
           searchField={this.state.searchField} 

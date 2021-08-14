@@ -4,19 +4,32 @@
   overflow: auto;
   padding: 6px;
 }
-.order-container li {
+.order-container .order-item li {
   list-style: none;
 }
 
-.order-container ul {
-  padding: 0px;
+.order-container .order-item {
+  cursor: pointer;
+  border-top: 1px dotted black;
+  padding: 2px;
   margin: 0px;
+}
+
+.order-container .order-item:hover {
+  background-color: rgb(53, 190, 92 , 0.05);
+}
+
+.order-container .selected-item:hover {
+  background-color: rgb(53, 190, 92 , 0.2);
 }
 
 .product-info {
   display: flex;
   justify-content: space-between;
-  border-top: 1px dotted black;
+}
+
+.selected-item{
+  background-color: rgb(53, 190, 92 , 0.2);
 }
 
 .total{
