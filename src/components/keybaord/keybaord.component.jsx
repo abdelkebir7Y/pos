@@ -3,7 +3,7 @@ import {BsCheckCircle} from 'react-icons/bs';
 import KeyButton from '../key-button/key-button.component';
 import './keybaord.style.css'
 
-const Keybaord = ({handleChangeButtonActive ,button_active}) => {
+const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput}) => {
   return (
     <div className="keybaord">
       <KeyButton className='large-key green text-bold ' >
@@ -12,42 +12,39 @@ const Keybaord = ({handleChangeButtonActive ,button_active}) => {
       </KeyButton>
       <div className='group-keybaords'>
         <div className='group-keys' >
-          <KeyButton className='text-bold small-key gray' >1</KeyButton>
-          <KeyButton className='text-bold small-key gray' >2</KeyButton>
-          <KeyButton className='text-bold small-key gray' >3</KeyButton>
-          <KeyButton className={`text-bold medium-key gray ${button_active==='qte' ? 'green' : ''}`}
-              handleChangeButtonActive={handleChangeButtonActive} 
-              buttonActiveValue='qte' 
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >1</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >2</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >3</KeyButton>
+          <KeyButton className={`text-bold medium-key gray ${buttonActive==='Qté' ? 'green' : ''}`}
+              handleOnClickEvent={handleChangeButtonActive} 
           >
             Qté
           </KeyButton>
         </div>
         <div className='group-keys' >
-          <KeyButton className='text-bold small-key gray' >4</KeyButton>
-          <KeyButton className='text-bold small-key gray' >5</KeyButton>
-          <KeyButton className='text-bold small-key gray' >6</KeyButton>
-          <KeyButton className={`text-bold medium-key gray ${button_active==='prix' ? 'green' : ''}`} 
-              handleChangeButtonActive={handleChangeButtonActive} 
-              buttonActiveValue='prix'
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >4</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >5</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >6</KeyButton>
+          <KeyButton className={`text-bold medium-key gray ${buttonActive==='Prix' ? 'green' : ''}`} 
+              handleOnClickEvent={handleChangeButtonActive} 
           >
             Prix
           </KeyButton>
         </div>
         <div className='group-keys' >
-          <KeyButton className='text-bold small-key gray' >7</KeyButton>
-          <KeyButton className='text-bold small-key gray' >8</KeyButton>
-          <KeyButton className='text-bold small-key gray' >9</KeyButton>
-          <KeyButton className={`text-bold medium-key gray ${button_active==='remise' ? 'green' : ''}`} 
-              handleChangeButtonActive={handleChangeButtonActive} 
-              buttonActiveValue='remise'
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >7</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >8</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >9</KeyButton>
+          <KeyButton className={`text-bold medium-key gray ${buttonActive==='Remise' ? 'green' : ''}`} 
+              handleOnClickEvent={handleChangeButtonActive} 
           >
-            Remise%
+            Remise
           </KeyButton>
         </div>
         <div className='group-keys' >
           <KeyButton className="text-bold small-key red" >+/-</KeyButton>
-          <KeyButton className='text-bold small-key gray' >0</KeyButton>
-          <KeyButton className='text-bold small-key gray' >,</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >0</KeyButton>
+          <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >.</KeyButton>
           <KeyButton className="text-bold medium-key red" ><BsBackspace className='icon' /></KeyButton>
         </div>
       </div>

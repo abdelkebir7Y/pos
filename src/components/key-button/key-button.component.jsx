@@ -1,18 +1,13 @@
 
 import './key-button.style.css';
 
-const KeyButton = ({children , className , handleChangeButtonActive , buttonActiveValue}) => {
-  return (
-    handleChangeButtonActive ?
-      <button  
-        className={`key ${className}`} 
-        onClick={(event)=> {handleChangeButtonActive(buttonActiveValue)}}
-      >
-        {children}
-      </button>
-    :
-      <button className={`key ${className}`} >{children}</button>
-  );
+const KeyButton = ({children , className , handleOnClickEvent}) => {
+  return  <button  
+            className={`key ${className}`} 
+            onClick={(event)=> {handleOnClickEvent(children)}}
+          >
+            {children}
+          </button>
 }
 
 export default KeyButton
