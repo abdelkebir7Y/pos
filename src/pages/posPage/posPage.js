@@ -172,14 +172,18 @@ class PosPage extends React.Component{
 
   findIndexOfItem =(id) => this.state.orderItems.findIndex(obj => obj.id === id)
 
+  selectItemById = (id) => {
+    const orderItems = this.state.orderItems;
+    const selectedItem = orderItems[id];
+    return selectedItem;
+  }
+
   addToOrderList = (item)=> {
     const indexOFItem = this.findIndexOfItem(item.id);
     if(indexOFItem >= 0) {
-      const orderItems = this.state.orderItems;
-      const selectedItem = orderItems[indexOFItem];
+      const selectedItem = this.selectItemById(indexOFItem)
       selectedItem.counter = selectedItem.counter + 1;
-      orderItems[indexOFItem] = selectedItem;
-      this.setState({orderItems , selectedItemId : selectedItem.id , inputValue: ""})
+      this.setState({selectedItemId : selectedItem.id , inputValue: ""})
     }else{
       this.setState({orderItems : this.state.orderItems.concat(item) , selectedItemId : item.id , inputValue: ""})
     }
@@ -194,13 +198,13 @@ class PosPage extends React.Component{
   }
 
   changePriceQteRemise = (value , property) => {
-    if(this.state.selectedItemId && !(value === '.' && this.state.inputValue.includes('.'))) {
-      let {orderItems , inputValue , selectedItemId} = this.state;
-      const indexOFItem = this.findIndexOfItem(selectedItemId);
-      const selectedItem = orderItems[indexOFItem];
-      inputValue =  inputValue.concat(value);
+    let {inputValue , selectedItemId} = this.state;
+    inputValue =  inputValue.concat(value);
+    if(selectedItemId && !isNaN(inputValue)) {
+      const indexOfItem = this.findIndexOfItem(selectedItemId);
+      const selectedItem = this.selectItemById(indexOfItem);
       selectedItem[property] = Number(inputValue);
-      this.setState({inputValue , orderItems });
+      this.setState({inputValue});
     }
   }
 
@@ -213,14 +217,55 @@ class PosPage extends React.Component{
         this.changePriceQteRemise(value , 'price');
         break;
       case 'Remise' :
+        if(this.state.inputValue.concat(value) <= 100 )
           this.changePriceQteRemise(value , 'remise');
-          break;
+        break;
       default :
         console.log(this.state.buttonActive);
     }
     
   }
 
+  deleteFromPriceQteRemise =(property) => {
+    let {inputValue , selectedItemId} = this.state;
+    inputValue = inputValue.slice(0, -1);
+    if(selectedItemId) {
+      const indexOfItem = this.findIndexOfItem(selectedItemId);
+      const selectedItem = this.selectItemById(indexOfItem);
+      selectedItem[property] = Number(inputValue);
+      this.setState({inputValue});
+    }
+  }
+
+  handleDeleteFromInput = ()=> {
+    switch(this.state.buttonActive){
+      case 'Qté' : 
+        this.deleteFromPriceQteRemise('counter');
+        break;
+      case 'Prix' :
+        this.deleteFromPriceQteRemise('price');
+        break;
+      case 'Remise' :
+        this.deleteFromPriceQteRemise('remise');
+        break;
+      default :
+        console.log(this.state.buttonActive);
+    } 
+  }
+
+  handleDeleteItem =() => {
+    let {selectedItemId , orderItems} = this.state;
+    if(selectedItemId ) {
+      const indexOfItem = this.findIndexOfItem(selectedItemId);
+      orderItems.splice(indexOfItem , 1 )
+      if(orderItems.length)
+        selectedItemId = orderItems[orderItems.length-1].id;
+      else 
+        selectedItemId = 0;
+      this.setState({orderItems , selectedItemId});
+    }
+  }
+  
   render () {
     return (
       <div className='window'>
@@ -236,6 +281,8 @@ class PosPage extends React.Component{
           buttonActive= {this.state.buttonActive}
           onClickSelectItem = {this.onClickSelectItem}
           handleChangeInput= {this.handleChangeInput}
+          handleDeleteFromInput= {this.handleDeleteFromInput}
+          handleDeleteItem ={this.handleDeleteItem}
         />
         <Rightpane 
           searchField={this.state.searchField} 

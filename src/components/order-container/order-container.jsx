@@ -7,7 +7,7 @@ const OrderContainer = ({orderItems, selectedItemId , onClickSelectItem}) => {
     <div className='order-container'>
       {
         orderItems.map(item => {
-          total += Number(item.price * item.counter);
+          total += Number(item.remise ? item.price * item.counter - (item.price * item.counter * item.remise / 100): item.price * item.counter);
           return (
             <ul 
               className={`order-item  ${item.id === selectedItemId ? 'selected-item' : ''}`}
@@ -17,7 +17,7 @@ const OrderContainer = ({orderItems, selectedItemId , onClickSelectItem}) => {
               <li className='product-info text-bold'>
                 <span className='product-name'>{item.name}</span>
                 <span className='product-price'>
-                  {`${item.remise ? item.price * item.counter *item.remise / 100: item.price * item.counter } DHs`}
+                  {`${item.remise ? item.price * item.counter - (item.price * item.counter * item.remise / 100): item.price * item.counter } DHs`}
                 </span>
               </li>
               <li className='price-info'>

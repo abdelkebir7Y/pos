@@ -3,7 +3,16 @@ import Keybaord from "../../components/keybaord/keybaord.component"
 import OrderContainer from '../../components/order-container/order-container';
 import React from 'react';
 
-function Leftpane({orderItems , selectedItemId , onClickSelectItem , handleChangeInput ,handleChangeButtonActive , buttonActive}){
+function Leftpane({orderItems ,
+        selectedItemId , 
+        onClickSelectItem , 
+        handleChangeInput ,
+        handleChangeButtonActive , 
+        buttonActive , 
+        handleDeleteFromInput,
+        handleDeleteItem
+      })
+{
   return (
     <div className='left-pane'>
       <OrderContainer 
@@ -14,6 +23,8 @@ function Leftpane({orderItems , selectedItemId , onClickSelectItem , handleChang
       <Keybaord 
         handleChangeButtonActive = {handleChangeButtonActive} 
         handleChangeInput={handleChangeInput}
+        handleDeleteFromInput ={handleDeleteFromInput}
+        handleDeleteItem ={handleDeleteItem}
         buttonActive={buttonActive}
       />
     </div>

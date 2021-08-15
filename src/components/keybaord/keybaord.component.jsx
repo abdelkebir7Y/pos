@@ -1,9 +1,9 @@
-import {BsBackspace} from 'react-icons/bs';
+import {BsBackspace , BsXCircle} from 'react-icons/bs';
 import {BsCheckCircle} from 'react-icons/bs';
 import KeyButton from '../key-button/key-button.component';
 import './keybaord.style.css'
 
-const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput}) => {
+const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput , handleDeleteFromInput ,handleDeleteItem}) => {
   return (
     <div className="keybaord">
       <KeyButton className='large-key green text-bold ' >
@@ -42,10 +42,18 @@ const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput}) 
           </KeyButton>
         </div>
         <div className='group-keys' >
-          <KeyButton className="text-bold small-key red" >+/-</KeyButton>
+          <KeyButton 
+            className="text-bold small-key red" 
+            handleOnClickEvent={handleDeleteItem}
+            title="supprimer l'élément sélectionné" 
+          >
+            <BsXCircle className='icon' />
+          </KeyButton>
           <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >0</KeyButton>
           <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >.</KeyButton>
-          <KeyButton className="text-bold medium-key red" ><BsBackspace className='icon' /></KeyButton>
+          <KeyButton className="text-bold medium-key red" handleOnClickEvent={handleDeleteFromInput} >
+            <BsBackspace className='icon' />
+          </KeyButton>
         </div>
       </div>
     </div>
