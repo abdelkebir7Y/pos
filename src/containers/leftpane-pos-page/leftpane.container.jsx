@@ -26,6 +26,7 @@ function Leftpane({orderItems ,
         handleDeleteFromInput ={handleDeleteFromInput}
         handleDeleteItem ={handleDeleteItem}
         buttonActive={buttonActive}
+        orderItems={orderItems}
       />
     </div>
   ); 

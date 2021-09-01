@@ -1,0 +1,9 @@
+.ticket {
+    background-color: white;
+    border: 1px solid #bfbfbf;
+    border-radius: 3px;
+    width: 300px;
+    min-height: 450px;
+    margin: 20px;
+    padding: 15px;
+}

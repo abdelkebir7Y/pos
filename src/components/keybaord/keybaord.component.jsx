@@ -1,15 +1,18 @@
 import {BsBackspace , BsXCircle} from 'react-icons/bs';
 import {BsCheckCircle} from 'react-icons/bs';
 import KeyButton from '../key-button/key-button.component';
-import './keybaord.style.css'
+import './keybaord.style.css';
+import { Link } from 'react-router-dom';
 
-const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput , handleDeleteFromInput ,handleDeleteItem}) => {
+const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput , handleDeleteFromInput ,handleDeleteItem , orderItems}) => {
   return (
     <div className="keybaord">
-      <KeyButton className='large-key green text-bold ' >
-        <span>Paiement</span>
-        <BsCheckCircle style={{fontSize : '65px'}} />
-      </KeyButton>
+      <Link to={{pathname : '/payemment' , state: { orderItems } }} >
+        <KeyButton className='large-key green text-bold ' handleOnClickEvent={()=> {}}  >
+          <span>Paiement</span>
+          <BsCheckCircle style={{fontSize : '65px'}} />
+        </KeyButton>
+      </Link>
       <div className='group-keybaords'>
         <div className='group-keys' >
           <KeyButton className='text-bold small-key gray' handleOnClickEvent={handleChangeInput} >1</KeyButton>
