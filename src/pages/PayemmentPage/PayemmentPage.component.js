@@ -1,13 +1,28 @@
 import React from 'react';
 import './PayemmentPage.style.css';
+import Logo from './logoPos.png';
 
 const PayemmentPage = (props) => {
     const {orderItems} = props?.location?.state;
+    var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric' , minute: 'numeric' };
+    const date =new Date().toLocaleDateString('fr-FR', dateOptions);
+    let total  = 0;
     return (
         <div className='ticket'>
+            <img className='logo' src={Logo} alt='logo' />
+            <p className='date' >{date}</p>
             {
-                orderItems.map(item => <p style={{ fontFamily : 'monospace' }}>{item.name.padEnd(35 , '-')}</p>)
+                orderItems.map(item => {
+                    const itemPrice = item.remise ? item.price * item.counter - (item.price * item.counter * item.remise / 100): item.price * item.counter;
+                    total += itemPrice;
+                    return <p className='ticket-item' key={item.id} >{item.name.padEnd(31 , '-')+ ( itemPrice+ 'DH').padStart(7 , '-')}</p>
+                })
             }
+            <div className='total' >
+                <p>{"".padEnd(total.toString().length + 5, '_')}</p>
+                <p>{total + ' DH '}</p> 
+            </div>
+            <p className='ticket-footer'>Merci de votre visite</p>
         </div>
     )
 };
