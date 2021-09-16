@@ -5,7 +5,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import PayemmentPage from './pages/PayemmentPage/PayemmentPage.component';
+import PaiementPage from './pages/PaiementPage/PaiementPage.component';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path='/' exact >
           <PosPage />
         </Route>
-        <Route path='/payemment' exact component={PayemmentPage} />
+        <Route path='/paiement' exact component={PaiementPage} />
       </Switch>
     </Router>
     

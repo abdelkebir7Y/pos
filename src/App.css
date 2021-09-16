@@ -44,3 +44,7 @@ body{
   cursor: pointer;
   vertical-align:middle;
 }
+
+button {
+  cursor: pointer;
+}
