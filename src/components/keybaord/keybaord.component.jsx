@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Keybaord = ({handleChangeButtonActive ,buttonActive , handleChangeInput , handleDeleteFromInput ,handleDeleteItem , orderItems}) => {
   return (
     <div className="keybaord">
-      <Link to={{pathname : '/payemment' , state: { orderItems } }} >
+      <Link to={{pathname : '/paiement' , state: { orderItems } }} >
         <KeyButton className='large-key green text-bold ' handleOnClickEvent={()=> {}}  >
           <span>Paiement</span>
           <BsCheckCircle style={{fontSize : '65px'}} />

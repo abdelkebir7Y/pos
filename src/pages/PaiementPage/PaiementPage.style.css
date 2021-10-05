@@ -1,0 +1,102 @@
+.paiement-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.ticket {
+    background-color: white;
+    border: 1px solid #bfbfbf;
+    border-radius: 3px;
+    width: 300px;
+    min-height: 450px;
+    margin: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    font-family: Courier ,  monospace;
+}
+
+.ticket .logo {
+    width: 50%;
+    align-self: center;
+}
+
+.ticket .date {
+    margin: 15px 0px;
+}
+
+.ticket .ticket-item {
+    font-family: monospace;
+}
+
+
+.ticket .total {
+    align-self: flex-end;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ticket .ticket-footer {
+    align-self: center;
+    margin-top: auto;
+}
+
+.ticket p {
+    margin: 5px 0px;
+}
+
+.paiement-page .print-button {
+    width: 330px;
+    padding:25px 15px;
+    font-weight: 700;
+    font-size: 1.3em;
+    border-radius: 3px;
+}
+.paiement-page .cancel-button , .edit-order-button {
+    background: white;
+    width: 157px;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1.05em;
+    border-radius: 3px;
+    margin: 8px 4px;
+}
+ 
+.paiement-page .cancel-button {
+    color: #98262E;
+}
+
+.paiement-page .cancel-button:hover{
+    color: white;
+    background-color: #BE2F3A ;
+}
+
+.paiement-page .edit-order-button {
+    color: #227A3B;
+}
+ 
+.paiement-page .edit-order-button:hover{
+    color: white;
+}
+
+
+
+@media print {
+    @page {
+        margin: 0px;
+    }
+    button {
+        display: none;
+    }
+    .paiement-page {
+        display: block;
+    }
+    .ticket {
+        border: none;
+        margin: 0px;
+    }
+}
