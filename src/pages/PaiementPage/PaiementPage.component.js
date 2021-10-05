@@ -1,5 +1,6 @@
 import React from 'react';
 import './PaiementPage.style.css';
+import { Link } from 'react-router-dom';
 import Logo from './logoPos.png';
 
 const PaiementPage = (props) => {
@@ -36,12 +37,16 @@ const PaiementPage = (props) => {
                     onClick={()=> print()}
                 >Imprimer le ticket</button>
                 <br/>
-                <button
-                    className='red cancel-button' 
-                > Annuler </button>
-                <button
-                    className='green new-order-button' 
-                > Modifier </button>
+                <Link to={{pathname : '/' , state: { orderItems : [] } }} >
+                    <button
+                        className='red cancel-button' 
+                    > Annuler </button> 
+                </Link>
+                <Link to={{pathname : '/' , state: { orderItems} }} >
+                    <button
+                        className='green edit-order-button' 
+                    > Modifier </button>
+                </Link>
             </div>
         </div>
     )

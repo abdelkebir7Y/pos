@@ -1,7 +1,11 @@
-body{
+html , body , #root {
   width: 100%;
+  height: 100%;
   margin: 0px;
-  background-color: rgb(252, 252, 252);
+}
+
+body{
+  background: rgb(252, 252, 252) url(background.png);
   font-family : "Lato","Lucida Grande", Helvetica, Verdana, Arial;
 }
 

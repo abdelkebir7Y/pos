@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router";
 import TopHeader from "../../components/top-header/top-header.component";
 import Leftpane from "../../containers/leftpane-pos-page/leftpane.container";
 import Rightpane from "../../containers/rightpane-pos-page/rightpane.container";
@@ -9,7 +10,7 @@ class PosPage extends React.Component{
     super();
     this.state = {
       searchField : '',
-      orderItems : [],
+      orderItems :[],
       buttonActive : "Qté",
       selectedItemId : 0,
       inputValue : ''
@@ -120,6 +121,13 @@ class PosPage extends React.Component{
     }
   }
   
+
+
+
+  componentDidMount(){
+    this.setState({orderItems : this?.props?.location?.state?.orderItems ?? []})
+  }
+
   render () {
     return (
       <div className='window'>
@@ -148,4 +156,4 @@ class PosPage extends React.Component{
   }
 }
 
-export default PosPage;
+export default withRouter(PosPage);
