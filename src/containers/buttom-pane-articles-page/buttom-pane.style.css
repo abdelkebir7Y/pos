@@ -1,0 +1,6 @@
+.buttom-pane-articles {
+    height: 100%;
+    margin: 8px;
+    border : 1px solid #bfbfbf;
+    overflow-y: scroll;
+}

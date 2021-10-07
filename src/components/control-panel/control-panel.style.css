@@ -1,0 +1,8 @@
+.control-panel {
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+    border-bottom : 1px solid #bfbfbf;
+    padding: 8px 25px;
+}

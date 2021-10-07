@@ -6,12 +6,19 @@ html , body , #root {
 
 body{
   background: rgb(252, 252, 252) url(background.png);
-  font-family : "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+  font-family: 'EB Garamond', serif;
+}
+
+.page-with-top-header {
+  padding-top: 56px;
 }
 
 .text-bold {
-  font-weight: 300;
-  font-size: 25px;
+  font-size: 22.5px;
+}
+
+.white {
+  background-color: white;
 }
 
 .gray {
@@ -47,8 +54,17 @@ body{
 .icon {
   cursor: pointer;
   vertical-align:middle;
+  font-size: 22.5px;
 }
 
 button {
   cursor: pointer;
+}
+
+.text-green-active {
+  color  : #2A984A
+}
+
+.text-green-inactive {
+  color  : #555555
 }

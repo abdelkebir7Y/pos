@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import TopHeader from "../../components/top-header/top-header.component";
+import TopHeaderPos from "../../components/top-header-pos/top-header-pos.component";
 import Leftpane from "../../containers/leftpane-pos-page/leftpane.container";
 import Rightpane from "../../containers/rightpane-pos-page/rightpane.container";
 import './posPage.style.css';
@@ -125,13 +125,15 @@ class PosPage extends React.Component{
 
 
   componentDidMount(){
-    this.setState({orderItems : this?.props?.location?.state?.orderItems ?? []})
+    const orderItems = this?.props?.location?.state?.orderItems ?? [];
+    const selectedItemId = orderItems[0]?.id ?? 0 ;
+    this.setState({orderItems , selectedItemId})
   }
 
   render () {
     return (
       <div className='window'>
-        <TopHeader 
+        <TopHeaderPos 
           searchField={this.state.searchField} 
           onSearchFieldChange = {this.onSearchFieldChange} 
           clearSearchField={this.clearSearchField}

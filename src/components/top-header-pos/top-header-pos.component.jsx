@@ -1,19 +1,14 @@
 import { HiLockClosed} from "react-icons/hi";
 import { BsPersonFill} from "react-icons/bs";
 import { BsCaretDownFill} from "react-icons/bs";
-import './top-header.style.css'
-
-
-const TopHeader = () => {
-    return (
-      <div className='top-header text-bold red'>
-        <ul className='top-header-left-buttons'>
-          <li className='app-name'>POSystem</li>  
-          <li className='left-button active '>Articles</li>
-          <li className='left-button'>Analyse</li>
-          <li className='left-button' >Configuration</li>
-        </ul>
-        
+import './top-header-pos.style.css';
+import SearchField from "../search-field/search-field.component";
+const  TopHeaderPos = ({...props}) => {
+  return (
+    <div className='top-header text-bold red'>
+      <span className='app-logo'>POS-System</span>
+      <div className='top-header-right'>
+        <SearchField {...props} />
         <div className='top-header-right-buttons'>
           <span className='lock-button top-header-button'> 
             <HiLockClosed className='icon' />
@@ -26,7 +21,8 @@ const TopHeader = () => {
           </span>
         </div>
       </div>
-    )
+    </div>
+  );
 }
 
-export default TopHeader;
+export default TopHeaderPos;

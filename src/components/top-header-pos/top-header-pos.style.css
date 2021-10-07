@@ -1,0 +1,54 @@
+.top-header {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.top-header:hover {
+  background-color: #ED3B48 ;
+}
+
+.app-logo {
+  margin-left: 7.5px;
+  width: 500px;
+}
+
+.top-header-right {
+  flex: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+
+.top-header-right-buttons {
+  height: 100%;
+}
+
+.top-header-right-buttons .top-header-button {
+  height: 100%;
+  padding: 25px;
+  padding-top: 7.5px;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 2px solid #BE2F3A;
+  background: linear-gradient(89deg, #ED3B48 0%, #BE2F3A 100%);
+}
+
+.top-header-button .icon {
+  padding-right: 7.5px;
+  padding-bottom: 2px;
+}
+
+.caret-down {
+  margin-left: 7.5px;
+  vertical-align: -27.5%;
+}
