@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import PaiementPage from './pages/PaiementPage/PaiementPage.component';
+import ArticlesPage from './pages/articlesPage/articles-page.component';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <PosPage />
         </Route>
         <Route path='/paiement' exact component={PaiementPage} />
+        <Route path='/articles' exact component={ArticlesPage} />
       </Switch>
     </Router>
     

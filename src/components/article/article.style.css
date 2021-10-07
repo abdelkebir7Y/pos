@@ -1,0 +1,20 @@
+.article-component {
+    border: 1px solid #bfbfbf;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+}
+
+.article-component .image {
+    width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+    margin-right : 6px;
+}
+
+.article-component .article-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
