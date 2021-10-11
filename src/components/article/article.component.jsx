@@ -2,7 +2,7 @@ import './article.style.css';
 
 const Article = ({name, price ,imageUrl})=> {
     return (
-        <div className='article-component'>
+        <div className='article-component pointer'>
             <div className='image'
                 style={{backgroundImage : `url(${imageUrl})`}}
             />

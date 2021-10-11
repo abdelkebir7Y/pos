@@ -2,10 +2,10 @@ import ArticlesViewOption from "../aricles-view-options/articles-view-options.co
 import SearchField from "../search-field/search-field.component";
 import './control-panel.style.css';
  
-const ControlPanel = () => {
+const ControlPanel = ({onSearchFieldChange , clearSearchField , searchField}) => {
   return (
     <div className='control-panel'>
-      <SearchField />
+      <SearchField onSearchFieldChange={onSearchFieldChange} clearSearchField={clearSearchField} searchField={searchField} />
       <ArticlesViewOption />
     </div>
   )

@@ -161,14 +161,26 @@ class ArticleContainer extends React.Component {
 	}
 	
 	render() {
+		const {searchField} = this.props ;
+		const filteredArticles = this.state.articles.filter(article => {
+			return article.name.toUpperCase().includes(searchField.toUpperCase());
+		})
 		return (
-			<div className='articles-container'>
+			<>
 				{
-					this.state.articles.map(({id , ...props}) => {
-						return <Article key={id} {...props} />
-					})
+					filteredArticles.length 
+					? 
+					<div className='articles-container'>
+						{
+							filteredArticles.map(({id , ...props}) => {
+								return <Article key={id} {...props} />
+							})
+						}
+					</div>
+					:
+						<p className='no-article text-bold'>aucun article trouvé</p>
 				}
-			</div>
+			</>
 		);
 	}
     
