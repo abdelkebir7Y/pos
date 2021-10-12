@@ -6,7 +6,8 @@ class ButtomPane extends React.Component{
     constructor() {
         super();
         this.state ={
-            searchField : ''
+            searchField : '',
+            viewOption : 'row'
         }
     }
     onSearchFieldChange = (event) => {
@@ -15,11 +16,24 @@ class ButtomPane extends React.Component{
     clearSearchField = () => {
         this.setState({searchField : ''})
     }
+    onViewOptionChange = (viewOption)=> {
+        this.setState({viewOption })
+    }
+
     render() {
         return (
             <div className='buttom-pane-articles white'>
-                <ControlPanel onSearchFieldChange={this.onSearchFieldChange} clearSearchField={this.clearSearchField} searchField={this.state.searchField}/>
-                <ArticleContainer searchField={this.state.searchField}/>
+                <ControlPanel 
+                    onSearchFieldChange={this.onSearchFieldChange} 
+                    clearSearchField={this.clearSearchField} 
+                    searchField={this.state.searchField}
+                    viewOption={this.state.viewOption} 
+                    onViewOptionChange = {this.onViewOptionChange}
+                />
+                <ArticleContainer 
+                    searchField={this.state.searchField} 
+                    viewOption={this.state.viewOption} 
+                />
             </div>
         );
     }

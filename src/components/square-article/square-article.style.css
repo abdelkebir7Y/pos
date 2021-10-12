@@ -1,7 +1,8 @@
 .article-component {
     border: 1px solid #bfbfbf;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    width: 290px;
     padding: 6px;
     transition: all 0.2s linear;
 }
