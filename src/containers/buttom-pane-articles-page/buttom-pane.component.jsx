@@ -1,13 +1,14 @@
 import React from "react";
+import ArticleForm from "../../components/article-form/article-form.component";
 import ArticleContainer from "../../components/Articles-container/articles-container.component"
-import ControlPanel from "../../components/control-panel/control-panel.component"
+import ControlPanel from "../../components/control-panel/control-panel.component";
 import './buttom-pane.style.css'
 class ButtomPane extends React.Component{
     constructor() {
         super();
         this.state ={
             searchField : '',
-            viewOption : 'row'
+            viewOption : 'square'
         }
     }
     onSearchFieldChange = (event) => {
@@ -21,21 +22,33 @@ class ButtomPane extends React.Component{
     }
 
     render() {
-        return (
-            <div className='buttom-pane-articles white'>
-                <ControlPanel 
-                    onSearchFieldChange={this.onSearchFieldChange} 
-                    clearSearchField={this.clearSearchField} 
-                    searchField={this.state.searchField}
-                    viewOption={this.state.viewOption} 
-                    onViewOptionChange = {this.onViewOptionChange}
-                />
-                <ArticleContainer 
-                    searchField={this.state.searchField} 
-                    viewOption={this.state.viewOption} 
-                />
-            </div>
-        );
+        const {CRUDOption , sendData , setSendDataToFalse} = this.props;
+        switch (CRUDOption) {
+            case 'R':
+                return (
+                    <div className='buttom-pane-articles white'>
+                        <ControlPanel 
+                            onSearchFieldChange={this.onSearchFieldChange} 
+                            clearSearchField={this.clearSearchField} 
+                            searchField={this.state.searchField}
+                            viewOption={this.state.viewOption} 
+                            onViewOptionChange = {this.onViewOptionChange}
+                        />
+                        <ArticleContainer 
+                            searchField={this.state.searchField} 
+                            viewOption={this.state.viewOption} 
+                        />
+                    </div>
+                );
+            case 'C' : 
+                    return (
+                        <div className='buttom-pane-articles white flex-column'>
+                            <ArticleForm sendData={sendData} setSendDataToFalse={setSendDataToFalse}/>
+                        </div>
+                    );
+            default:
+                break;
+        }
     }
     
 }

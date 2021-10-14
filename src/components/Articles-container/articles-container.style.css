@@ -13,7 +13,7 @@
 
 .articles-container table {
     grid-column: 1/-1;
-    max-width: 1200px;
+    max-width: 1024px;
     min-width: 800px;
     width: 100%;
     border-collapse: collapse;

@@ -85,9 +85,6 @@ body{
   cursor: pointer;
 }
 
-button {
-  cursor: pointer;
-}
 
 .text-green-active {
   color  : #2A984A
@@ -95,4 +92,27 @@ button {
 
 .text-green-inactive {
   color  : #555555
+}
+
+.flex-row{
+  display: flex;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+
+button {
+  cursor: pointer;
+}
+input , select {
+  outline: 0px;
 }
