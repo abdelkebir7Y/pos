@@ -4,14 +4,16 @@ import {RiDeleteBin6Line} from 'react-icons/ri';
 import Alert from '../alert-component/alert.component';
 import './article-form.style.css';
 import {apiUrl} from '../../config/api/apiUrl';
+import PopUpAlert from '../pop-up-alert/pop-up-alert.component';
 class  ArticleForm extends React.Component {
     constructor() {
         super();
         this.state= {
+            id : 0,
             name:'' ,
             s_price : '',
             p_price : '',
-            category : '',
+            category : 'jus',
             imageUrl : 'https://abdo2.odoo.com/web/static/src/img/placeholder.png',
             errors : {
                 nameError : '',
@@ -20,6 +22,7 @@ class  ArticleForm extends React.Component {
             },
             success : '',
             information : '',
+            deleteAlert : false
         }
     }
 
@@ -97,29 +100,38 @@ class  ArticleForm extends React.Component {
     }
 
     //delete image 
-    handleDeleteImageFromServer = () => {
-        fetch(`${apiUrl}delete-product-image`,{
-            method : 'DELETE' ,
-            headers : {
-                "Content-Type" : 'application/json'
-            },
-            body : JSON.stringify({imageUrl:this.state.imageUrl})
-        })
-        .then(response => response.json())
-        .then(result => { 
-            this.setState(
-                {success : result , information : ''} ,
-                ()=> {
-                    setTimeout(() => {this.setState({success : ''})} , 5000)
-                }
-            )
-        })
-        .catch(error => this.setState(
-            {success : error , information : ''} ,
-            ()=> {
-                setTimeout(() => {this.setState({success : ''})} , 5000)
-            }
-        ));
+    handleDeleteImageFromServer = async() => {
+        try {
+            const response = await fetch(`${apiUrl}delete-product-image`,{
+                method : 'DELETE' ,
+                headers : {
+                    "Content-Type" : 'application/json'
+                },
+                body : JSON.stringify({imageUrl:this.state.imageUrl})
+            })
+            if (response.status === 200) {
+                const result = await response.json();
+                this.setState(
+                    {success : result , information : ''} ,
+                    ()=> {
+                        setTimeout(() => {this.setState({success : ''})} , 5000)
+                    }
+                )
+            }else {
+                const result = await response.json();
+                this.setState(
+                    {information : result } ,
+                    ()=> {
+                        setTimeout(() => {this.setState({information : ''})} , 5000)
+                    }
+                )
+            }    
+        } catch(err){
+            console.log('error at handleDeleteImageFromServer');
+            setTimeout(() => {this.setState({information : ''})} , 5000)
+        } 
+        
+        
     }
 
     deleteImage = () => {
@@ -133,15 +145,17 @@ class  ArticleForm extends React.Component {
 
     //send data to server
     handleSendData = () => {
-        const {name , s_price , p_price, category , imageUrl} = this.state;
+        const {id ,name , s_price , p_price, category , imageUrl} = this.state;
         const {nameError , s_priceError ,p_priceError} = this.state.errors;
+        const path = id ? `update-article/${id}` : 'create-article';
         if( !nameError && !s_priceError && !p_priceError && name !== '' && s_price!== '' && p_price !== ''){
-            fetch(`${apiUrl}create-article` , {
-                method : 'POST',
+            fetch(`${apiUrl}${path}` , {
+                method : id ? 'PUT' :'POST',
                 headers : {
                     'Content-Type' : 'application/json'
                 },
                 body : JSON.stringify({
+                    id ,
                     name ,
                     s_price,
                     p_price,
@@ -150,9 +164,9 @@ class  ArticleForm extends React.Component {
                 })
             })
             .then(res => res.json())
-            .then((item) => {
+            .then((res) => {
                 this.setState(
-                    {success :`${item} has been successfully registered`} , 
+                    {success :res} , 
                     ()=> {
                         setTimeout(()=>this.setState( {success : ''}), 5000)
                     }
@@ -162,19 +176,57 @@ class  ArticleForm extends React.Component {
             .catch(err => console.log('error' , err));
         }
     }
+    
+    //display and hide deleteAlert
+    toggleDeleteAlert = (deleteAlert) => {
+        this.setState({deleteAlert});
+    }
+    //delete article 
 
+    handleDeleteArticle = async() => {
+        const {id} = this.state;
+        const path = `delete-article/${id}` ; 
+        const response = await fetch(`${apiUrl}${path}` , {
+            method : 'DELETE',
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        });
+        const result = await response.json();
+        if (response.status === 200) {
+            this.props.setAlertMessage(result , 'success')
+        } else {
+            if(response.status === 400) {
+                this.props.setAlertMessage(result , 'information')
+            }else {
+                this.props.setAlertMessage(result , 'error')
+            }
+        }
+        this.props.changeCRUD_articleName('Articles' , '')
+    }
+    
+    // life sycle methods && send data to server && delete article from database 
+    componentDidMount(){
+        const {article} = this.props;
+        if(article) {
+            this.setState({...article});
+        }
+    }
 
-    // life sycle methods and send data to server
     componentDidUpdate() {
-        const {sendData , setSendDataToFalse} = this.props;
+        const {sendData , setSendDataToFalse, deleteArticle , setDeleteArticleToFalse} = this.props;
         if(sendData){
             this.handleSendData();
             setSendDataToFalse();
+        }else if(deleteArticle) {
+            this.toggleDeleteAlert(true);
+            setDeleteArticleToFalse();
         }
     }
 
     render(){
-        const {errors , imageUrl , success , information} = this.state;
+        const {name, s_price ,p_price, category, errors , imageUrl , success , information , deleteAlert} = this.state;
+        const {disabled} = this.props;
         return (
             <>
                 {
@@ -192,16 +244,49 @@ class  ArticleForm extends React.Component {
                 {
                     errors.p_priceError ? <Alert type='error'> {errors.p_priceError } </Alert>: '' 
                 }
+                {
+                    deleteAlert ?
+                        <PopUpAlert handleDeleteArticle = {this.handleDeleteArticle} toggleDeleteAlert = {this.toggleDeleteAlert}/>
+                    : ''
+                }
                 <div className='flex-row w-100'>
                     <div className='article-informations text-bold '>
                         <label htmlFor='nom' > Nom :</label>
-                        <input type='text' placeholder="Nom de l'article" id='nom' required onInput={this.onInputName}/>
+                        <input 
+                            type='text' 
+                            placeholder="Nom de l'article" id='nom' 
+                            required 
+                            onInput={this.onInputName}
+                            value={name}
+                            disabled={disabled}
+                        />
                         <label htmlFor='prix-v' > Prix de vente (DHs):</label>
-                        <input type='text' placeholder="Prix de vente" id='prix-v' required onInput={this.onInputSPrice}/>
+                        <input 
+                            type='text' 
+                            placeholder="Prix de vente" id='prix-v' 
+                            required 
+                            onInput={this.onInputSPrice}
+                            value={s_price}
+                            disabled={disabled}
+                        />
                         <label htmlFor='prix-a' > Prix d'achat (DHs):</label>
-                        <input type='text' placeholder="Prix d'achat" id='prix-a' required onInput={this.onInputPPrice}/>
+                        <input 
+                            type='text' 
+                            placeholder="Prix d'achat" 
+                            id='prix-a' 
+                            required 
+                            onInput={this.onInputPPrice}
+                            value={p_price}
+                            disabled={disabled}
+                        />
                         <label htmlFor='catégorie' > Catégorie :</label>
-                        <select id='catégorie' required onChange={this.onSelectCategory}> 
+                        <select 
+                            id='catégorie' 
+                            required 
+                            onChange={this.onSelectCategory} 
+                            value={category}
+                            disabled={disabled}
+                        > 
                             <option value='jus'>Jus</option>
                             <option value='cafe'>Café</option>
                             <option value='limonade'>Limonade</option>
@@ -209,10 +294,15 @@ class  ArticleForm extends React.Component {
                     </div>
                     <div className='product-image flex-column'>
                         <img src={imageUrl} alt='product'/>
-                        <div className='image-icons'>
-                            <GrEdit className='icon edit ' onClick={this.selectArticleImage} />
-                            <RiDeleteBin6Line className='icon delete' onClick={this.deleteImage} />
-                        </div>
+                        {
+                            !disabled 
+                            ?   <div className='image-icons'>
+                                    <GrEdit className='icon edit ' onClick={this.selectArticleImage} />
+                                    <RiDeleteBin6Line className='icon delete' onClick={this.deleteImage} />
+                                </div>
+                            : ''
+                        }
+                        
                     </div>
                 </div>
                 

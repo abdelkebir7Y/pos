@@ -29,6 +29,6 @@
     background-color: #eee;
 }
 
-.articles-container tr:hover {
+.articles-container tbody tr:hover {
     background-color: #ddd;
 }

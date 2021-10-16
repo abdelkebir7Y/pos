@@ -9,6 +9,14 @@ body{
   font-family: 'EB Garamond', serif;
 }
 
+.window {
+  display: flex;
+  padding: 6px;
+  padding-top: 56px;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
 /* SCROLLBAR */
 
 *::-webkit-scrollbar-track

@@ -1,8 +1,11 @@
 import './square-article.style.css';
 
-const SquareArticle = ({name, price ,imageUrl})=> {
+const SquareArticle = ({id , name, price ,imageUrl,selectArticle})=> {
     return (
-        <div className='article-component pointer'>
+        <div 
+            className='article-component pointer' 
+            onClick={() => selectArticle({name ,s_price : price ,p_price : price , imageUrl , category :'cafe' , id  })}
+        >
             <div className='image'
                 style={{backgroundImage : `url(${imageUrl})`}}
             />

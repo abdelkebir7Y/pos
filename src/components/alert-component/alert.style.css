@@ -3,7 +3,9 @@
     width: 800px;
     border-radius: 6px;
     align-items: center;
+    margin: auto;
     margin-top: 8px;
+    margin-bottom: 0px;
 }
 .error-alert {
     background-color: #ed3b4740;

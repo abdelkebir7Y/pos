@@ -1,8 +1,11 @@
 import './row-article.style.css';
 
-const RowArticle = ({name , price , imageUrl}) => {
+const RowArticle = ({id , name , price , imageUrl , selectArticle}) => {
     return (
-        <tr className='row-article-component pointer'>
+        <tr 
+            className='row-article-component pointer' 
+            onClick={() => selectArticle({name ,s_price : price ,p_price : price , imageUrl , category :'cafe' , id })}
+        >
             <td >
                 <div className='image'
                     style={{backgroundImage : `url(${imageUrl})`}}
