@@ -143,7 +143,7 @@ class  ArticleForm extends React.Component {
         }
     }
 
-    //send data to server
+    //create and update send data to server
     handleSendData = () => {
         const {id ,name , s_price , p_price, category , imageUrl} = this.state;
         const {nameError , s_priceError ,p_priceError} = this.state.errors;
@@ -171,6 +171,7 @@ class  ArticleForm extends React.Component {
                         setTimeout(()=>this.setState( {success : ''}), 5000)
                     }
                 )
+                this.props.selectArticle({id , name ,p_price ,s_price ,category ,imageUrl})
                 
             })
             .catch(err => console.log('error' , err));

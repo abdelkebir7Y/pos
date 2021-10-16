@@ -76,7 +76,7 @@ class ButtomPane extends React.Component{
             case 'C' : 
                 return (
                     <div className='buttom-pane-articles white flex-column'>
-                        <ArticleForm sendData={sendData} setSendDataToFalse={setSendDataToFalse} />
+                        <ArticleForm sendData={sendData} setSendDataToFalse={setSendDataToFalse} selectArticle={this.selectArticle} />
                     </div>
                 );
             case 'U' :
@@ -86,6 +86,7 @@ class ButtomPane extends React.Component{
                             sendData={sendData} 
                             setSendDataToFalse={setSendDataToFalse} 
                             article={this.state.article}
+                            selectArticle={this.selectArticle} 
                         />  
                     </div>
                 );
