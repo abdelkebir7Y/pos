@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Ticket from '../../components/ticket/ticket.component';
 
 const PaiementPage = (props) => {
-    const {orderItems} = props?.location?.state;
+    const orderItems = props?.location?.state?.orderItems ?? [];
     
     const print = ()=>{
         window.print();

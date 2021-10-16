@@ -1,0 +1,7 @@
+.row-article-component .image {
+    width: 55px;
+    height: 55px;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.2s linear;
+}

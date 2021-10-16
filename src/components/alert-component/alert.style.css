@@ -1,0 +1,26 @@
+.alert {
+    height: 50px;
+    width: 800px;
+    border-radius: 6px;
+    align-items: center;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+.error-alert {
+    background-color: #ed3b4740;
+    border: 1px solid #98262E;
+    color : #660209;
+}
+
+.success-alert {
+    background-color: #35BE5C40;
+    border: 1px solid #227A3B;
+    color : #094f1d;
+}
+
+.information-alert {
+    background-color: #3459A240;
+    border: 1px solid #3459A2;
+    color : #0F3072;
+}

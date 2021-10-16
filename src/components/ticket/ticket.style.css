@@ -41,3 +41,10 @@
 .ticket p {
     margin: 5px 0px;
 }
+
+@media print {
+    .ticket {
+        border: none;
+        margin: 0px;
+    }
+}

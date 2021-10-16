@@ -2,7 +2,7 @@ import { BsSearch } from "react-icons/bs";
 import { BsXCircle } from "react-icons/bs";
 import './search-field.style.css';
 
-const SearchField = ( {searchField , onSearchFieldChange , clearSearchField}) => {
+const SearchField = ( {searchField , onSearchFieldChange ,clearSearchField}) => {
 	return (
 		<div className='search-field'>
 			<BsSearch className='icon left-icon'/>
@@ -11,7 +11,7 @@ const SearchField = ( {searchField , onSearchFieldChange , clearSearchField}) =>
 				className='search-input text-bold' 
 				placeholder='search' 
 				value={searchField}
-				onChange={onSearchFieldChange}
+				onInput={onSearchFieldChange}
 			/> 
 			<BsXCircle 
 				className='icon right-icon'
