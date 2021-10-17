@@ -1,6 +1,6 @@
 import './alert.style.css'
 
-const ErrorAlert = ({children , type}) => {
+const Alert = ({children , type}) => {
     return (
         <div className={`alert ${type}-alert flex-row`}>
             {children}
@@ -8,4 +8,4 @@ const ErrorAlert = ({children , type}) => {
     )
 }
 
-export default ErrorAlert;
+export default Alert;

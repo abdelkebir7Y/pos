@@ -1,0 +1,85 @@
+.login-form {
+    height: 375px;
+    margin-top: 10%;
+    border: 1.9px solid #98262E;
+    border-radius: 8px;
+    position: relative;
+}
+
+.login-form .login-avatar {
+    border-radius: 50%;
+    padding: 2px;
+    border-bottom: 3px solid #98262E;
+    height: 100px;
+    position: absolute;
+    top: -55px;
+}
+
+.login-form .app-name {
+    margin-top: 50px;
+    color: #BE2F3A;
+}
+
+.login-form .alert {
+    width: 90%;
+    margin: 0px 0px 4px;
+}
+
+.login-form .input-field {
+    width: 400px;
+    height: 45px;
+    position: relative;
+    padding: 0%;
+    margin: 8px;
+    border: 1.9px solid #227A3B;
+    border-radius: 4px;
+}
+
+.login-form .input-field-error {
+    border-color: #ED3B48;
+}
+
+.input-field .move-top {
+    color: #35BE5C;
+    font-size: 18px;
+    top : -13px; 
+    left: 8px;
+}
+
+.input-field-error .move-top {
+    color: #ED3B48;
+}
+
+.input-field label {
+    transition: all 0.1s ease-in;
+    padding: 0px 6px;
+    position: absolute;
+    top : 10px;
+    left: 8px;
+}
+
+
+.input-field input {
+    font-size: 20px;
+    color: inherit;
+    box-sizing: border-box;
+    border: hidden;
+    padding: 0px 8px;
+    width: 100%;
+    height: 100%;
+}
+
+.input-field .eye-icon {
+    position: absolute;
+    color : #227A3B;
+    right: 15px;
+    top : 10px
+}
+
+.input-field .red-eye{
+    color : #98262E;
+}
+
+.login-form button {
+    margin-top: 8px;
+}

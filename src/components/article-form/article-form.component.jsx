@@ -165,12 +165,7 @@ class  ArticleForm extends React.Component {
             })
             .then(res => res.json())
             .then((res) => {
-                this.setState(
-                    {success :res} , 
-                    ()=> {
-                        setTimeout(()=>this.setState( {success : ''}), 5000)
-                    }
-                )
+                this.props.setAlertMessage(res , 'success')
                 this.props.selectArticle({id , name ,p_price ,s_price ,category ,imageUrl})
                 
             })

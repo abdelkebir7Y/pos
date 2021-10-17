@@ -56,52 +56,47 @@ class ButtomPane extends React.Component{
         }
     }
 
-    render() {
+    CRUDOptionSwitch = () => {
         const {CRUDOption , sendData , setSendDataToFalse , deleteArticle , setDeleteArticleToFalse , changeCRUD_articleName} = this.props;
         switch (CRUDOption) {
             case 'R':
                 return (
-                    <div className='buttom-pane-articles white flex-column'>
                         <ArticleForm 
+                            key='R'
                             sendData={sendData} 
                             setSendDataToFalse={setSendDataToFalse} 
-                            article={this.state.article} disabled={true}
+                            article={this.state.article} 
+                            disabled={true}
                             deleteArticle={deleteArticle}
                             setDeleteArticleToFalse = {setDeleteArticleToFalse}
                             setAlertMessage = {this.setAlertMessage}
                             changeCRUD_articleName = {changeCRUD_articleName}
                         />
-                    </div>
                 );
             case 'C' : 
                 return (
-                    <div className='buttom-pane-articles white flex-column'>
-                        <ArticleForm sendData={sendData} setSendDataToFalse={setSendDataToFalse} selectArticle={this.selectArticle} />
-                    </div>
+                        <ArticleForm 
+                            key='C'
+                            sendData={sendData} 
+                            setSendDataToFalse={setSendDataToFalse} 
+                            setAlertMessage = {this.setAlertMessage}
+                            selectArticle={this.selectArticle} 
+                        />
                 );
             case 'U' :
                 return (
-                    <div className='buttom-pane-articles white flex-column'>
                         <ArticleForm 
+                            key='U'
                             sendData={sendData} 
                             setSendDataToFalse={setSendDataToFalse} 
                             article={this.state.article}
+                            setAlertMessage = {this.setAlertMessage}
                             selectArticle={this.selectArticle} 
                         />  
-                    </div>
                 );
             default:
                 return (
-                    <div className='buttom-pane-articles white'>
-                        {
-                            this.state.success ? <Alert type='success'> {this.state.success  } </Alert>: '' 
-                        }
-                        {
-                            this.state.information ? <Alert type='information'> {this.state.information  } </Alert>: '' 
-                        }
-                        {
-                            this.state.error ? <Alert type='error'> {this.state.error  } </Alert>: '' 
-                        }
+                    <>
                         <ControlPanel 
                             onSearchFieldChange={this.onSearchFieldChange} 
                             clearSearchField={this.clearSearchField} 
@@ -114,9 +109,29 @@ class ButtomPane extends React.Component{
                             searchField={this.state.searchField} 
                             viewOption={this.state.viewOption} 
                         />
-                    </div>
+                    </>
                 );
-        }
+        }        
+    }
+
+    render() {
+        return (
+            <div className='buttom-pane-articles white'>
+            {
+                this.state.success ? <Alert type='success'> {this.state.success  } </Alert>: '' 
+            }
+            {
+                this.state.information ? <Alert type='information'> {this.state.information  } </Alert>: '' 
+            }
+            {
+                this.state.error ? <Alert type='error'> {this.state.error  } </Alert>: '' 
+            }
+            {
+                this.CRUDOptionSwitch()
+            }
+            </div>
+        )
+        
     }
     
 }
