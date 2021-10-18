@@ -55,7 +55,7 @@ class LoginForm extends React.Component{
             }else {
                 if(response.status === 400) {
                     this.setState({error : result } , ()=> {
-                            setTimeout( () => {this.setState({error : ''}) ; console.log('fffffffff')} , 5000 )
+                            setTimeout( () => {this.setState({error : ''}) } , 5000 )
                         }
                     );
                 }else {
