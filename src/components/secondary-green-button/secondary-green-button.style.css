@@ -1,0 +1,12 @@
+.secondary-green-button {
+    color : #2A984A;
+    border: 2px solid #227A3B;
+    padding: 6px 26px;
+    border-radius: 3px;
+    font-size: 1.2em;
+}
+
+.secondary-green-button:hover {
+    color: white;
+    background-color: #35BE5C;
+}

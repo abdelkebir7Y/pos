@@ -4,6 +4,11 @@
   height: 240px;
   bottom: 0%;
 }
+
+.keybaord .paiement {
+  flex-grow: 4;
+}
+
 .group-keybaords {
   display : flex;
   flex-direction: column;
@@ -25,4 +30,5 @@
 
 .large-key {
   height: 100%;
+  width: 100%;
 }

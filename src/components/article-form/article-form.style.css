@@ -1,4 +1,4 @@
-.buttom-pane-articles .article-informations {
+.buttom-pane .article-informations {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -18,19 +18,19 @@
     color : #404040
 }
 
-.buttom-pane-articles .product-image {
+.buttom-pane .product-image {
     width: 200px;
     margin-top: 30px;
 }
 
-.buttom-pane-articles .product-image  img{
+.buttom-pane .product-image  img{
     object-fit: cover;
     border: 1px solid #bfbfbf;
     width: 150px;
     height: 150px;
 }
 
-.buttom-pane-articles .product-image .image-icons {
+.buttom-pane .product-image .image-icons {
     position: relative;
     top: -32px;
     width: 150px;

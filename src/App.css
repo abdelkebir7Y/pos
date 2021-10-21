@@ -7,7 +7,7 @@ html , body , #root {
 body{
   background: rgb(252, 252, 252) url(background.png);
   font-family: 'EB Garamond', serif;
-  color: #404040;
+  color: #303030;
 }
 
 .window {
@@ -46,6 +46,23 @@ body{
   padding-top: 56px;
 }
 
+.top-pane {
+  margin: 0px 8px 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 25px;
+  border: 1px solid #bfbfbf;
+  min-height: 38px;
+}
+
+.buttom-pane{
+  height: 100%;
+  margin: 8px;
+  border : 1px solid #bfbfbf;
+  overflow: auto;
+}
+
 .text-bold {
   font-size: 22.5px;
 }
@@ -55,7 +72,7 @@ body{
 }
 
 .gray {
-  border: 2px solid #bfbfbf;
+  border: 1px solid #bfbfbf;
   background-color: #eee;
   color: #555555;
 }
@@ -65,7 +82,7 @@ body{
 }
 
 .red {
-  border: 2px solid #98262E;
+  border: 1px solid #98262E;
   background-color: #ED3B48;
   color:white;
 }
@@ -75,7 +92,7 @@ body{
 }
 
 .green {
-  border: 2px solid #227A3B;
+  border: 1px solid #227A3B;
   background-color: #35BE5C;
   color:white;
 }
@@ -95,11 +112,11 @@ body{
 }
 
 
-.text-green-active {
+.active-link {
   color  : #2A984A
 }
 
-.text-green-inactive {
+.inactive-link {
   color  : #555555
 }
 
@@ -121,6 +138,7 @@ body{
 
 button {
   cursor: pointer;
+  font-family: inherit;
 }
 input , select {
   outline: 0px;

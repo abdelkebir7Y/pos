@@ -1,0 +1,30 @@
+.dashboard-control-panel {
+    list-style: none;
+    justify-content: flex-start;
+    border-bottom: 1px solid #bfbfbf;
+    margin: 8px;
+    padding: 0px 6px;
+}
+
+.dashboard-control-panel li{
+    border-radius: 4px;
+    margin: 1px;
+    padding: 4px 15px;
+}
+
+.dashboard-control-panel li.active {
+    background-color: white;
+    border-bottom: hidden;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: -1px;
+}
+
+.dashboard-control-panel li.active::after{
+    content: "";
+    display: block;
+    height: 1px;
+    max-width: 100%;
+    margin:0px 5px;
+    background: #35BE5C;
+}

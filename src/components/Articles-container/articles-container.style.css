@@ -29,6 +29,12 @@
     background-color: #eee;
 }
 
+.articles-container th:first-child {
+    border-left: hidden;
+    border-top: hidden;
+}
+
+
 .articles-container tbody tr:hover {
     background-color: #ddd;
 }
