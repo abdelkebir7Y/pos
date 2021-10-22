@@ -11,30 +11,7 @@
     text-align: center;
 }
 
-.articles-container table {
-    grid-column: 1/-1;
-    max-width: 1024px;
-    min-width: 800px;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.articles-container th , .articles-container td {
-    border : 1px solid #bfbfbf;
-    text-align: left;
-    padding: 8px;
-}
-
-.articles-container tr:nth-child(even) {
-    background-color: #eee;
-}
-
 .articles-container th:first-child {
     border-left: hidden;
     border-top: hidden;
-}
-
-
-.articles-container tbody tr:hover {
-    background-color: #ddd;
 }

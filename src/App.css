@@ -41,6 +41,29 @@ body{
 }
 
 /* SCROLLBAR ^*/
+/* table style  */
+table {
+  grid-column: 1/-1;
+  max-width: 1024px;
+  min-width: 800px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th , td {
+  border : 1px solid #bfbfbf;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
+/* table style  */
 
 .page-with-top-header {
   padding-top: 56px;
@@ -65,10 +88,6 @@ body{
 
 .text-bold {
   font-size: 22.5px;
-}
-
-.white {
-  background-color: white;
 }
 
 .gray {
@@ -99,6 +118,10 @@ body{
 
 .green:hover {
   background-color: #2A984A;
+}
+
+.white {
+  background-color: white;
 }
 
 .icon {
@@ -142,4 +165,8 @@ button {
 }
 input , select {
   outline: 0px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }

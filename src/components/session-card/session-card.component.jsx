@@ -11,7 +11,7 @@ const SessionCard = () => {
     return (
         <div className='session-card flex-column' >
             {
-                false ? 
+                true ? 
                 <>
                     <div className='session-id flex-row'>
                         <h2 >Session : ID52214Z4</h2>
@@ -43,7 +43,7 @@ const SessionCard = () => {
                         <BiTime className='icon'/> <span>Dernière date de clôture : 12-12-2021 16:18</span>    
                     </div>
                     <div className='buttons'>
-                        <GreenButton handler={()=>{setOpenDropDown(true)}}>Nouvelle session</GreenButton>
+                        <GreenButton handler={()=>{}}>Nouvelle session</GreenButton>
                     </div>
                 </>
             }

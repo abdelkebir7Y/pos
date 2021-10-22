@@ -5,7 +5,7 @@ import TopPaneDashboard from "../../containers/top-pane-dashboard/top-pane-dashb
 const Dashboard = () => {
     return (
         <div className="window" style={{flexDirection : 'column'}}>
-            <TopHeader/>
+            <TopHeader page='dashboard'/>
             <TopPaneDashboard />
             <ButtomPaneDashboard />
         </div>
