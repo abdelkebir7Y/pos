@@ -1,0 +1,28 @@
+.filter-options {
+    display: flex;
+    align-items: center;
+    border: 1px solid #bfbfbf;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-radius: 4px;
+    position: absolute;
+    top: 35px ;
+    right: -255.66px;
+    width: 600px;
+    padding: 18px;
+}
+
+.filter-options .green-button {
+    margin-left: auto;
+    width: 125px;
+}
+
+.arrow {
+    border-left: 1px solid #bfbfbf;
+    border-top: 1px solid #bfbfbf;
+    position: absolute;
+    top: 35px ;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%, -50%) rotate(45deg);
+}

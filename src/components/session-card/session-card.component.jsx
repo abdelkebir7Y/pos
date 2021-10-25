@@ -25,8 +25,8 @@ const SessionCard = () => {
                         : ''
                     }
                     <div className='session-inforamtions flex-row'>
-                        <BiUserCircle className='icon' /><span>Utilisateur : abdelkebir</span>
-                        <BiTime className='icon'/> <span>Date d'ouverture : 12-12-2021 16:18</span>    
+                        <BiUserCircle  /><span>Utilisateur : abdelkebir</span>
+                        <BiTime /> <span>Date d'ouverture : 12-12-2021 16:18</span>    
                     </div>
                     <div className='buttons'>
                         <GreenButton handler={()=>{}}>Reprendre</GreenButton>
@@ -39,8 +39,8 @@ const SessionCard = () => {
                         <h3 >vous n'avez pas de session ouverte</h3>
                     </div>
                     <div className='session-inforamtions flex-row'>
-                        <BiUserCircle className='icon' /><span>Utilisateur : abdelkebir</span>
-                        <BiTime className='icon'/> <span>Dernière date de clôture : 12-12-2021 16:18</span>    
+                        <BiUserCircle  /><span>Utilisateur : abdelkebir</span>
+                        <BiTime /> <span>Dernière date de clôture : 12-12-2021 16:18</span>    
                     </div>
                     <div className='buttons'>
                         <GreenButton handler={()=>{}}>Nouvelle session</GreenButton>

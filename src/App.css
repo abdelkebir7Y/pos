@@ -8,6 +8,7 @@ body{
   background: rgb(252, 252, 252) url(background.png);
   font-family: 'EB Garamond', serif;
   color: #303030;
+  /* direction: rtl; */
 }
 
 .window {
@@ -51,7 +52,7 @@ table {
 }
 
 th , td {
-  border : 1px solid #bfbfbf;
+  border : 1px solid  #bfbfbf;
   text-align: left;
   padding: 8px;
 }
@@ -61,7 +62,7 @@ tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background-color: #ddd;
+  background-color: rgb(53, 190, 92 , 0.2);
 }
 /* table style  */
 
