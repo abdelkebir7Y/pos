@@ -6,11 +6,11 @@ const ArticlesViewOption = ({onViewOptionChange , viewOption}) => {
     return (
         <div className='articles-VO'>
             <ImList 
-                className={`icon ${viewOption==='row' ? 'text-green-active' : 'text-green-inactive' } `}
+                className={`icon ${viewOption==='row' ? 'active-link' : 'inactive-link' } `}
                 onClick={() => { onViewOptionChange('row')}}
             />
             <FaTh 
-                className= {`icon ${viewOption==='square' ? 'text-green-active' : 'text-green-inactive' } `} 
+                className= {`icon ${viewOption==='square' ? 'active-link' : 'inactive-link' } `} 
                 onClick={() => { onViewOptionChange('square')}}
             />
         </div>

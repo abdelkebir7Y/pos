@@ -43,7 +43,7 @@ class ArticlesPage extends React.Component {
   render() {
     return (
       <div className="window" style={{flexDirection : 'column'}}>
-        <TopHeader />
+        <TopHeader page='articles'/>
         <TopPane 
           onChangeCRUDOption={this.onChangeCRUDOption} 
           CRUDOption={this.state.CRUDOption} 

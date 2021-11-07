@@ -1,9 +1,10 @@
 import React from "react";
 import ArticleForm from "../../components/article-form/article-form.component";
 import ArticleContainer from "../../components/Articles-container/articles-container.component"
-import ControlPanel from "../../components/control-panel/control-panel.component";
+import ControlPanel from "../../components/articles-control-panel/control-panel.component";
 import Alert from '../../components/alert-component/alert.component';
-import './buttom-pane.style.css'
+
+
 class ButtomPane extends React.Component{
     constructor() {
         super();
@@ -116,7 +117,7 @@ class ButtomPane extends React.Component{
 
     render() {
         return (
-            <div className='buttom-pane-articles white'>
+            <div className='buttom-pane white'>
             {
                 this.state.success ? <Alert type='success'> {this.state.success  } </Alert>: '' 
             }

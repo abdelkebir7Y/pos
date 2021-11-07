@@ -1,0 +1,16 @@
+.sessions {
+    padding : 6px ;
+}
+
+.sessions .filter {
+    position: relative;
+}
+
+.filter .filter-button {
+    padding: 6px 20px;
+    margin-bottom: 4px ;
+}
+
+.sessions .filtre-icon {
+    vertical-align: middle;
+}

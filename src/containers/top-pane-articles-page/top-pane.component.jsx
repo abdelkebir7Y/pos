@@ -1,18 +1,21 @@
 import GreenButton from '../../components/green-button/green-button.component'
+import NavigationLink from '../../components/navigation-link/navigation-link.component';
 import RedButton from '../../components/red-button/red-button.component';
-import './top-pane.style.css'
 
 const TopPane = ({onChangeCRUDOption , CRUDOption , triggerSendData , articleName , triggerDeleteArticle}) => {
     switch (CRUDOption) {
         case 'R':
             return (
-                <div className='top-pane-articles white' >
+                <div className='top-pane white' >
                     <div>
-                        <span 
-                            className='text-bold text-green-active pointer'
-                            onClick={()=> {onChangeCRUDOption('Article')}}
-                        >/ Articles </span>
-                        <span className='text-bold text-green-inactive'>/ {articleName}</span>    
+                        <NavigationLink 
+                                handler= {onChangeCRUDOption}
+                                option={'Articles'}
+                                active={true}
+                        >{'/ Articles '}</NavigationLink> 
+                        <NavigationLink 
+                                active={false}
+                        > / {articleName}</NavigationLink> 
                     </div>   
                     <div>
                         <RedButton
@@ -28,14 +31,17 @@ const TopPane = ({onChangeCRUDOption , CRUDOption , triggerSendData , articleNam
             );
         case 'C': 
             return (
-                <div className='top-pane-articles white' >
+                <div className='top-pane white' >
                     <div>
-                        <span 
-                            className='text-bold text-green-active pointer'
-                            onClick={()=> {onChangeCRUDOption('Article')}}
-                        >/ Articles </span>
-                        <span className='text-bold text-green-inactive'>/ {'Nouveau article'}</span>    
-                    </div>
+                        <NavigationLink 
+                                handler= {onChangeCRUDOption}
+                                option={'Article'}
+                                active={true}
+                        >{'/ Articles '}</NavigationLink> 
+                        <NavigationLink 
+                                active={false}
+                        > / {'Nouveau article'}</NavigationLink> 
+                    </div>  
                     <div>
                         <RedButton
                             handler= {onChangeCRUDOption}
@@ -50,14 +56,17 @@ const TopPane = ({onChangeCRUDOption , CRUDOption , triggerSendData , articleNam
             );
         case 'U' :
             return (
-                <div className='top-pane-articles white' >
+                <div className='top-pane white' > 
                     <div>
-                        <span 
-                            className='text-bold text-green-active pointer'
-                            onClick={()=> {onChangeCRUDOption('Article')}}
-                        >/ Articles </span>
-                        <span className='text-bold text-green-inactive'>/ {articleName}</span>    
-                    </div>   
+                        <NavigationLink 
+                                handler= {onChangeCRUDOption}
+                                option={'Article'}
+                                active={true}
+                        >{'/ Articles '}</NavigationLink> 
+                        <NavigationLink 
+                                active={false}
+                        > / {articleName}</NavigationLink> 
+                    </div> 
                     <div>
                         <RedButton
                             handler= {onChangeCRUDOption}
@@ -72,8 +81,10 @@ const TopPane = ({onChangeCRUDOption , CRUDOption , triggerSendData , articleNam
             );
         default:
             return (
-                <div className='top-pane-articles white' >
-                    <span className='text-bold text-green-inactive'>/ Articles </span>
+                <div className='top-pane white' >
+                    <NavigationLink
+                        active={false}
+                    >{'/ Articles '}</NavigationLink> 
                     <GreenButton 
                         handler= {onChangeCRUDOption}
                         option={'C'}
